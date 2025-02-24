@@ -1,11 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { Spinner } from "../Spinner/Spinner";
 
 import { buttonVariants, type buttonVariantType } from "./Button.types";
 import "./Button.css";
 
-interface ButtonProps {
+export interface ButtonProps {
 	onClick: () => void;
 	buttonText?: string;
 	className?: string;

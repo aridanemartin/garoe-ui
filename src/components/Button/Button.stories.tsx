@@ -1,5 +1,5 @@
-import React from "react";
-import { Button } from "./Button";
+import { Button, type ButtonProps } from "./Button";
+
 import type { Meta, StoryObj } from "@storybook/react";
 import { buttonVariants } from "./Button.types";
 
@@ -35,10 +35,12 @@ const meta: Meta<typeof Button> = {
 
 export default meta;
 
-export const Default: StoryObj<typeof Button> = (args) => <Button {...args} />;
+export const Default: StoryObj<typeof Button> = (args: ButtonProps) => (
+	<Button {...args} />
+);
 Default.storyName = "Default";
 
-export const Loading: StoryObj<typeof Button> = (args) => (
+export const Loading: StoryObj<typeof Button> = (args: ButtonProps) => (
 	<Button {...args} isLoading />
 );
 Loading.storyName = "Loading";

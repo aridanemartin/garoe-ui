@@ -20,6 +20,7 @@
 		"typescript": "^5.7.3"
 	},
 	"scripts": {
+		"build": "tsc",
 		"storybook": "storybook dev -p 6006",
 		"build-storybook": "storybook build"
 	}

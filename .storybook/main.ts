@@ -15,5 +15,18 @@ const config: StorybookConfig = {
 		name: "@storybook/react-vite",
 		options: {},
 	},
+	babel: async (options) => ({
+		...options,
+		presets: [
+			...options.presets,
+			[
+				"@babel/preset-react", // With this preset, we can avoid import React from "react" in every file
+				{
+					runtime: "automatic",
+				},
+				"preset-react-jsx-transform", // Can name this anything, just an arbitrary alias to avoid duplicate presets'
+			],
+		],
+	}),
 };
 export default config;
