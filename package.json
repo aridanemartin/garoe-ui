@@ -1,0 +1,26 @@
+{
+	"name": "garoe-ui",
+	"version": "1.0.0",
+	"main": "dist/index.js",
+	"module": "dist/index.es.js",
+	"types": "dist/index.d.ts",
+	"files": ["dist"],
+	"devDependencies": {
+		"@chromatic-com/storybook": "^3.2.4",
+		"@storybook/addon-essentials": "^8.5.8",
+		"@storybook/addon-interactions": "^8.5.8",
+		"@storybook/addon-onboarding": "^8.5.8",
+		"@storybook/blocks": "^8.5.8",
+		"@storybook/react": "^8.5.8",
+		"@storybook/react-vite": "^8.5.8",
+		"@storybook/test": "^8.5.8",
+		"@types/react": "^19.0.10",
+		"@types/react-dom": "^19.0.4",
+		"storybook": "^8.5.8",
+		"typescript": "^5.7.3"
+	},
+	"scripts": {
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build"
+	}
+}

@@ -1,0 +1,118 @@
+:root {
+	--button-primary-bg: #007bff;
+	--button-primary-color: #fff;
+	--button-secondary-bg: #6c757d;
+	--button-secondary-color: #fff;
+	--button-tertiary-bg: #f8f9fa;
+	--button-tertiary-color: #6c757d;
+	--button-tertiary-hover-color: #5a6268;
+	--button-tooltip-bg: #000;
+	--button-tooltip-color: #fff;
+	--icon-button-with-icon-color-filter: grayscale(100%);
+	--icon-button-with-icon-color-filter-hover: grayscale(0%);
+}
+
+.button {
+	position: relative; /* Ensure the tooltip is positioned relative to the button */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: none;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+	border-radius: 10px;
+	padding: 0.5rem 1rem;
+	margin: 0 0.2rem 0.5rem 0.2rem;
+	font-size: 1rem;
+
+	img {
+		width: 1.2rem;
+		height: 1.2rem;
+		margin-right: 0.5rem;
+		transition: all 0.3s ease-in-out;
+		filter: var(--icon-button-with-icon-color-filter);
+	}
+
+	&__primary {
+		background: var(--button-primary-bg);
+		color: var(--button-primary-color);
+		box-shadow: 0px 10px 50px 0 rgba(31, 38, 135, 0.2);
+	}
+
+	&__secondary {
+		background: var(--button-secondary-bg);
+		color: var(--button-secondary-color);
+	}
+
+	&__tertiary {
+		background: var(--button-tertiary-bg);
+		color: var(--button-tertiary-color);
+		font-size: 0.75rem;
+
+		&:hover {
+			color: var(--button-tertiary-hover-color);
+
+			img {
+				filter: var(--icon-button-with-icon-color-filter-hover);
+			}
+		}
+	}
+
+	&__danger {
+		background: #5c0512;
+		color: white;
+	}
+
+	&__onlyIcon {
+		background: none;
+
+		img {
+			height: 1.5rem;
+			width: 1.5rem;
+			transition: all 0.2s ease-in-out;
+			position: relative; /* Ensure the img is positioned relative to the tooltip */
+			filter: drop-shadow(2px 2px 2px rgba(7, 17, 69, 0.5));
+
+			&:hover + .button__iconTooltip {
+				opacity: 1;
+				visibility: visible;
+			}
+		}
+	}
+
+	&__iconWrapper {
+		position: relative;
+	}
+
+	&__iconTooltip {
+		opacity: 0;
+		visibility: hidden;
+		position: absolute;
+		top: 2rem;
+		left: 100%;
+		transform: translateX(-100%);
+		width: max-content;
+		background: var(--button-tooltip-bg);
+		color: var(--button-tooltip-color);
+		padding: 0.5rem;
+		border-radius: 5px;
+		font-size: 0.75rem;
+		transition: all 0.3s ease-in-out;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -0.75rem;
+			left: 90%;
+			transform: translateX(-50%);
+			border-width: 0.5rem;
+			border-style: solid;
+			border-color: transparent transparent var(--button-tooltip-bg) transparent;
+		}
+	}
+
+	&[disabled] {
+		cursor: not-allowed;
+		opacity: 0.25;
+	}
+}
