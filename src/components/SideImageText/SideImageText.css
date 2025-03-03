@@ -1,0 +1,22 @@
+.garoe-ui-sideImageText {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	margin-bottom: var(--garoe-ui-default-margin-bottom);
+
+	.imageContainer {
+		width: 100%;
+		height: 100%;
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+		}
+	}
+}
+
+@media (max-width: 768px) {
+	.garoe-ui-sideImageText {
+		grid-template-columns: 100%;
+	}
+}

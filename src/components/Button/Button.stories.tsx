@@ -20,7 +20,7 @@ const meta: Meta<typeof Button> = {
 			},
 			options: [...Object.keys(buttonVariants)],
 		},
-		buttonText: {
+		text: {
 			control: {
 				type: "text",
 			},
@@ -29,7 +29,7 @@ const meta: Meta<typeof Button> = {
 	},
 	args: {
 		variant: "primary",
-		buttonText: "Click me",
+		text: "Click me",
 	},
 };
 

@@ -4,16 +4,18 @@ import { Spinner } from "../Spinner/Spinner";
 
 import { buttonVariants, type buttonVariantType } from "./Button.types";
 import "./Button.css";
+import { sidePosition, type SidePositionType } from "../../types/common.types";
 
 export interface ButtonProps {
 	onClick: () => void;
-	buttonText?: string;
+	text?: string;
 	className?: string;
 	variant?: buttonVariantType;
 	disabled?: boolean;
 	isLoading?: boolean;
 	iconSrc?: string;
 	iconAlt?: string;
+	iconPosition?: SidePositionType;
 	iconStyles?: React.CSSProperties;
 	iconTooltip?: string;
 	style?: React.CSSProperties;
@@ -21,13 +23,14 @@ export interface ButtonProps {
 
 export const Button = ({
 	onClick,
-	buttonText,
+	text,
 	className,
 	variant = buttonVariants.PRIMARY,
 	iconSrc,
 	isLoading,
 	disabled,
 	iconAlt,
+	iconPosition,
 	iconStyles,
 	iconTooltip,
 	style,
@@ -41,12 +44,12 @@ export const Button = ({
 		}
 	}, [isLoading]);
 
-	if (!buttonText && !iconSrc) {
+	if (!text && !iconSrc) {
 		return null;
 	}
 
 	const renderTooltip = (iconTooltip: string) => {
-		return <span className="button__iconTooltip">{iconTooltip}</span>;
+		return <span className="garoe-ui-button__iconTooltip">{iconTooltip}</span>;
 	};
 
 	const renderSpinner = () => {
@@ -54,18 +57,34 @@ export const Button = ({
 	};
 
 	const renderButtonContent = () => {
+		const icon = iconSrc && (
+			<img
+				className="garoe-ui-button__icon"
+				src={iconSrc}
+				alt={iconAlt}
+				style={iconStyles}
+			/>
+		);
+		const buttonText = text && (
+			<span className="garoe-ui-button__text">{text}</span>
+		);
+		const tooltip = iconTooltip && renderTooltip(iconTooltip);
+
+		if (iconPosition === sidePosition.LEFT) {
+			return (
+				<>
+					{icon}
+					{buttonText}
+					{tooltip}
+				</>
+			);
+		}
+
 		return (
 			<>
-				{iconSrc && (
-					<img
-						className="button__icon"
-						src={iconSrc}
-						alt={iconAlt}
-						style={iconStyles}
-					/>
-				)}
-				{buttonText && <span className="button__text">{buttonText}</span>}
-				{iconTooltip && renderTooltip(iconTooltip)}
+				{text}
+				{icon}
+				{tooltip}
 			</>
 		);
 	};
@@ -76,7 +95,7 @@ export const Button = ({
 			ref={buttonRef}
 			style={{ ...style, width: isLoading ? buttonWidth : "auto" }}
 			disabled={disabled}
-			className={`button button__${variant} ${className ?? ""}`}
+			className={`garoe-ui-button ${variant} ${className ?? ""}`}
 			onClick={onClick}
 		>
 			{isLoading ? renderSpinner() : renderButtonContent()}

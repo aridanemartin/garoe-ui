@@ -1,0 +1,20 @@
+:root {
+	/* Button */
+	--garoe-ui-button-primary-bg: yellow;
+	--garoe-ui-button-primary-color: #fff;
+	--garoe-ui-button-secondary-bg: #6c757d;
+	--garoe-ui-button-secondary-color: #fff;
+	--garoe-ui-button-tertiary-bg: #f8f9fa;
+	--garoe-ui-button-tertiary-color: #6c757d;
+	--garoe-ui-button-tertiary-hover-color: #5a6268;
+	--garoe-ui-button-tooltip-bg: #000;
+	--garoe-ui-button-tooltip-color: #fff;
+	--garoe-ui-icon-button-with-icon-color-filter: grayscale(100%);
+	--garoe-ui-icon-button-with-icon-color-filter-hover: grayscale(0%);
+
+	--garoe-ui-button-border-radius: 2rem;
+	--garoe-ui-button-padding: 0.5rem 1rem;
+
+	/* Default component spacing */
+	--garoe-ui-default-margin-bottom: 1.5rem;
+}
