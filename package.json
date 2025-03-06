@@ -1,6 +1,6 @@
 {
 	"name": "garoe-ui",
-	"version": "1.0.2",
+	"version": "1.0.4",
 	"main": "dist/cjs/index",
 	"module": "dist/esm/index",
 	"types": "dist/types/index",

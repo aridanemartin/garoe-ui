@@ -3,7 +3,6 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: none;
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
 	border-radius: var(--garoe-ui-button-border-radius);
@@ -23,17 +22,20 @@
 		background-color: var(--garoe-ui-button-primary-bg);
 		color: var(--garoe-ui-button-primary-color);
 		box-shadow: 0px 10px 50px 0 rgba(31, 38, 135, 0.2);
+		border: 1px solid var(--garoe-ui-button-primary-bg);
 	}
 
-	.secondary {
+	&.secondary {
 		background: var(--garoe-ui-button-secondary-bg);
 		color: var(--garoe-ui-button-secondary-color);
+		border: 1px solid var(--garoe-ui-button-secondary-border-color);
 	}
 
-	.tertiary {
+	&.tertiary {
 		background: var(--garoe-ui-button-tertiary-bg);
 		color: var(--garoe-ui-button-tertiary-color);
 		font-size: 0.75rem;
+		border: 1px solid var(--garoe-ui-button-tertiary-border-color);
 
 		&:hover {
 			color: var(--garoe-ui-button-tertiary-hover-color);
